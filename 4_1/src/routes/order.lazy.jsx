@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { CartContext } from "../contexts";
-import Cart from "../Cart";
-import Pizza from "../Pizza";
+import Cart from "../components/Cart";
+import Pizza from "../components//Pizza";
 
 // feel free to change en-US / USD to your locale
-const intl = new Intl.NumberFormat("en-US", {
+const intl = new Intl.NumberFormat("bs-BA", {
   style: "currency",
-  currency: "USD",
+  currency: "BAM",
 });
 
 export const Route = createLazyFileRoute("/order")({
@@ -42,7 +42,7 @@ function Order() {
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
     price = intl.format(
-      selectedPizza.sizes ? selectedPizza.sizes[pizzaSize] : "",
+      selectedPizza.sizes ? selectedPizza.sizes[pizzaSize] : ""
     );
   }
 
